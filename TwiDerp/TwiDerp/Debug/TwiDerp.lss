@@ -1,0 +1,1161 @@
+
+TwiDerp.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000042  00800100  00000724  000007b8  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000724  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000054  00800142  00800142  000007fa  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000007fa  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  0000082c  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000188  00000000  00000000  0000086c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00001491  00000000  00000000  000009f4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000006e1  00000000  00000000  00001e85  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000a09  00000000  00000000  00002566  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000004cc  00000000  00000000  00002f70  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000005bc  00000000  00000000  0000343c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000014a8  00000000  00000000  000039f8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000198  00000000  00000000  00004ea0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 35 00 	jmp	0x6a	; 0x6a <__ctors_end>
+   4:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+   8:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+   c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  10:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  14:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  18:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  1c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  20:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  24:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  28:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  2c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  30:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  34:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  38:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  3c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  40:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  44:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  48:	0c 94 31 03 	jmp	0x662	; 0x662 <__vector_18>
+  4c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  50:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  54:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  58:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  5c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  60:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  64:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+
+00000068 <__ctors_start>:
+  68:	b2 00       	.word	0x00b2	; ????
+
+0000006a <__ctors_end>:
+  6a:	11 24       	eor	r1, r1
+  6c:	1f be       	out	0x3f, r1	; 63
+  6e:	cf ef       	ldi	r28, 0xFF	; 255
+  70:	d8 e0       	ldi	r29, 0x08	; 8
+  72:	de bf       	out	0x3e, r29	; 62
+  74:	cd bf       	out	0x3d, r28	; 61
+
+00000076 <__do_copy_data>:
+  76:	11 e0       	ldi	r17, 0x01	; 1
+  78:	a0 e0       	ldi	r26, 0x00	; 0
+  7a:	b1 e0       	ldi	r27, 0x01	; 1
+  7c:	e4 e2       	ldi	r30, 0x24	; 36
+  7e:	f7 e0       	ldi	r31, 0x07	; 7
+  80:	02 c0       	rjmp	.+4      	; 0x86 <__do_copy_data+0x10>
+  82:	05 90       	lpm	r0, Z+
+  84:	0d 92       	st	X+, r0
+  86:	a2 34       	cpi	r26, 0x42	; 66
+  88:	b1 07       	cpc	r27, r17
+  8a:	d9 f7       	brne	.-10     	; 0x82 <__do_copy_data+0xc>
+
+0000008c <__do_clear_bss>:
+  8c:	21 e0       	ldi	r18, 0x01	; 1
+  8e:	a2 e4       	ldi	r26, 0x42	; 66
+  90:	b1 e0       	ldi	r27, 0x01	; 1
+  92:	01 c0       	rjmp	.+2      	; 0x96 <.do_clear_bss_start>
+
+00000094 <.do_clear_bss_loop>:
+  94:	1d 92       	st	X+, r1
+
+00000096 <.do_clear_bss_start>:
+  96:	a6 39       	cpi	r26, 0x96	; 150
+  98:	b2 07       	cpc	r27, r18
+  9a:	e1 f7       	brne	.-8      	; 0x94 <.do_clear_bss_loop>
+
+0000009c <__do_global_ctors>:
+  9c:	10 e0       	ldi	r17, 0x00	; 0
+  9e:	c5 e3       	ldi	r28, 0x35	; 53
+  a0:	d0 e0       	ldi	r29, 0x00	; 0
+  a2:	04 c0       	rjmp	.+8      	; 0xac <__do_global_ctors+0x10>
+  a4:	21 97       	sbiw	r28, 0x01	; 1
+  a6:	fe 01       	movw	r30, r28
+  a8:	0e 94 8a 03 	call	0x714	; 0x714 <__tablejump2__>
+  ac:	c4 33       	cpi	r28, 0x34	; 52
+  ae:	d1 07       	cpc	r29, r17
+  b0:	c9 f7       	brne	.-14     	; 0xa4 <__do_global_ctors+0x8>
+  b2:	0e 94 5f 00 	call	0xbe	; 0xbe <main>
+  b6:	0c 94 90 03 	jmp	0x720	; 0x720 <_exit>
+
+000000ba <__bad_interrupt>:
+  ba:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000be <main>:
+
+int temp;
+
+int main(void)
+{
+	UsartInit();
+  be:	0e 94 b6 02 	call	0x56c	; 0x56c <_Z9UsartInitv>
+	TwiInit();
+  c2:	0e 94 aa 01 	call	0x354	; 0x354 <_Z7TwiInitv>
+
+	if(!mpu.Init(GYRO_RANGE_250, ACC_RANGE_8G))
+  c6:	42 e0       	ldi	r20, 0x02	; 2
+  c8:	60 e0       	ldi	r22, 0x00	; 0
+  ca:	80 e5       	ldi	r24, 0x50	; 80
+  cc:	91 e0       	ldi	r25, 0x01	; 1
+  ce:	0e 94 c2 00 	call	0x184	; 0x184 <_ZN7Mpu60504InitEhh>
+  d2:	81 11       	cpse	r24, r1
+  d4:	04 c0       	rjmp	.+8      	; 0xde <main+0x20>
+	{
+		UsartSend("Couldn't init, please reset\r\n\0");
+  d6:	80 e0       	ldi	r24, 0x00	; 0
+  d8:	91 e0       	ldi	r25, 0x01	; 1
+  da:	0e 94 cf 02 	call	0x59e	; 0x59e <_Z9UsartSendPc>
+	}
+
+	
+	while(true)
+	{
+		if(!mpu.GetGyroscope(&gx, &gy, &gz)) break;
+  de:	24 e4       	ldi	r18, 0x44	; 68
+  e0:	31 e0       	ldi	r19, 0x01	; 1
+  e2:	46 e4       	ldi	r20, 0x46	; 70
+  e4:	51 e0       	ldi	r21, 0x01	; 1
+  e6:	68 e4       	ldi	r22, 0x48	; 72
+  e8:	71 e0       	ldi	r23, 0x01	; 1
+  ea:	80 e5       	ldi	r24, 0x50	; 80
+  ec:	91 e0       	ldi	r25, 0x01	; 1
+  ee:	0e 94 42 01 	call	0x284	; 0x284 <_ZN7Mpu605012GetGyroscopeEPiS0_S0_>
+  f2:	88 23       	and	r24, r24
+  f4:	91 f1       	breq	.+100    	; 0x15a <main+0x9c>
+		if(!mpu.GetAccelerometer(&ax, &ay, &az)) break;
+  f6:	2a e4       	ldi	r18, 0x4A	; 74
+  f8:	31 e0       	ldi	r19, 0x01	; 1
+  fa:	4c e4       	ldi	r20, 0x4C	; 76
+  fc:	51 e0       	ldi	r21, 0x01	; 1
+  fe:	6e e4       	ldi	r22, 0x4E	; 78
+ 100:	71 e0       	ldi	r23, 0x01	; 1
+ 102:	80 e5       	ldi	r24, 0x50	; 80
+ 104:	91 e0       	ldi	r25, 0x01	; 1
+ 106:	0e 94 fd 00 	call	0x1fa	; 0x1fa <_ZN7Mpu605016GetAccelerometerEPiS0_S0_>
+ 10a:	88 23       	and	r24, r24
+ 10c:	31 f1       	breq	.+76     	; 0x15a <main+0x9c>
+		if(!mpu.GetTemperature(&temp)) break;
+ 10e:	62 e4       	ldi	r22, 0x42	; 66
+ 110:	71 e0       	ldi	r23, 0x01	; 1
+ 112:	80 e5       	ldi	r24, 0x50	; 80
+ 114:	91 e0       	ldi	r25, 0x01	; 1
+ 116:	0e 94 87 01 	call	0x30e	; 0x30e <_ZN7Mpu605014GetTemperatureEPi>
+ 11a:	88 23       	and	r24, r24
+ 11c:	f1 f0       	breq	.+60     	; 0x15a <main+0x9c>
+		UsartSend(ax); UsartSend('\t');
+		UsartSend(ay); UsartSend('\t');
+		UsartSend(az); UsartSend('\t');		
+		*/
+		
+		UsartSend(gx); UsartSend('\t');
+ 11e:	80 91 48 01 	lds	r24, 0x0148	; 0x800148 <gx>
+ 122:	90 91 49 01 	lds	r25, 0x0149	; 0x800149 <gx+0x1>
+ 126:	0e 94 e5 02 	call	0x5ca	; 0x5ca <_Z9UsartSendi>
+ 12a:	89 e0       	ldi	r24, 0x09	; 9
+ 12c:	0e 94 c7 02 	call	0x58e	; 0x58e <_Z9UsartSendc>
+		UsartSend(gy); UsartSend('\t');
+ 130:	80 91 46 01 	lds	r24, 0x0146	; 0x800146 <gy>
+ 134:	90 91 47 01 	lds	r25, 0x0147	; 0x800147 <gy+0x1>
+ 138:	0e 94 e5 02 	call	0x5ca	; 0x5ca <_Z9UsartSendi>
+ 13c:	89 e0       	ldi	r24, 0x09	; 9
+ 13e:	0e 94 c7 02 	call	0x58e	; 0x58e <_Z9UsartSendc>
+		UsartSend(gz); UsartSend('\t');
+ 142:	80 91 44 01 	lds	r24, 0x0144	; 0x800144 <gz>
+ 146:	90 91 45 01 	lds	r25, 0x0145	; 0x800145 <gz+0x1>
+ 14a:	0e 94 e5 02 	call	0x5ca	; 0x5ca <_Z9UsartSendi>
+ 14e:	89 e0       	ldi	r24, 0x09	; 9
+ 150:	0e 94 c7 02 	call	0x58e	; 0x58e <_Z9UsartSendc>
+		
+		/*UsartSend(temp);*/ 
+		
+		UsartNewLine();		
+ 154:	0e 94 5b 03 	call	0x6b6	; 0x6b6 <_Z12UsartNewLinev>
+int ax, ay, az;
+int gx, gy, gz;
+
+int temp;
+
+int main(void)
+ 158:	c2 cf       	rjmp	.-124    	; 0xde <main+0x20>
+		/*UsartSend(temp);*/ 
+		
+		UsartNewLine();		
+	}
+
+	UsartSend("Error occured, please reset...\r\n\0");
+ 15a:	8f e1       	ldi	r24, 0x1F	; 31
+ 15c:	91 e0       	ldi	r25, 0x01	; 1
+ 15e:	0e 94 cf 02 	call	0x59e	; 0x59e <_Z9UsartSendPc>
+int ax, ay, az;
+int gx, gy, gz;
+
+int temp;
+
+int main(void)
+ 162:	ff cf       	rjmp	.-2      	; 0x162 <main+0xa4>
+
+00000164 <_GLOBAL__sub_I_mpu>:
+
+#include <avr/io.h>
+#include "uart.h"
+#include "Mpu6050.h"
+
+Mpu6050 mpu(false);
+ 164:	60 e0       	ldi	r22, 0x00	; 0
+ 166:	80 e5       	ldi	r24, 0x50	; 80
+ 168:	91 e0       	ldi	r25, 0x01	; 1
+ 16a:	0e 94 b8 00 	call	0x170	; 0x170 <_ZN7Mpu6050C1Eb>
+ 16e:	08 95       	ret
+
+00000170 <_ZN7Mpu6050C1Eb>:
+}
+
+bool Mpu6050::GetGyroscope(ubyte* buffer)
+{
+	return TwiReadFromReg(addr, GYRO_XH, buffer, 6);
+}
+ 170:	61 11       	cpse	r22, r1
+ 172:	04 c0       	rjmp	.+8      	; 0x17c <_ZN7Mpu6050C1Eb+0xc>
+ 174:	28 e6       	ldi	r18, 0x68	; 104
+ 176:	fc 01       	movw	r30, r24
+ 178:	21 83       	std	Z+1, r18	; 0x01
+ 17a:	08 95       	ret
+ 17c:	29 e6       	ldi	r18, 0x69	; 105
+ 17e:	fc 01       	movw	r30, r24
+ 180:	21 83       	std	Z+1, r18	; 0x01
+ 182:	08 95       	ret
+
+00000184 <_ZN7Mpu60504InitEhh>:
+ 184:	0f 93       	push	r16
+ 186:	1f 93       	push	r17
+ 188:	cf 93       	push	r28
+ 18a:	df 93       	push	r29
+ 18c:	64 30       	cpi	r22, 0x04	; 4
+ 18e:	68 f5       	brcc	.+90     	; 0x1ea <_ZN7Mpu60504InitEhh+0x66>
+ 190:	44 30       	cpi	r20, 0x04	; 4
+ 192:	68 f5       	brcc	.+90     	; 0x1ee <_ZN7Mpu60504InitEhh+0x6a>
+ 194:	14 2f       	mov	r17, r20
+ 196:	06 2f       	mov	r16, r22
+ 198:	ec 01       	movw	r28, r24
+ 19a:	41 e0       	ldi	r20, 0x01	; 1
+ 19c:	6b e6       	ldi	r22, 0x6B	; 107
+ 19e:	89 81       	ldd	r24, Y+1	; 0x01
+ 1a0:	0e 94 0e 02 	call	0x41c	; 0x41c <_Z13TwiWriteToReghhh>
+ 1a4:	88 23       	and	r24, r24
+ 1a6:	21 f1       	breq	.+72     	; 0x1f0 <_ZN7Mpu60504InitEhh+0x6c>
+ 1a8:	40 e0       	ldi	r20, 0x00	; 0
+ 1aa:	69 e1       	ldi	r22, 0x19	; 25
+ 1ac:	89 81       	ldd	r24, Y+1	; 0x01
+ 1ae:	0e 94 0e 02 	call	0x41c	; 0x41c <_Z13TwiWriteToReghhh>
+ 1b2:	88 23       	and	r24, r24
+ 1b4:	e9 f0       	breq	.+58     	; 0x1f0 <_ZN7Mpu60504InitEhh+0x6c>
+ 1b6:	40 e0       	ldi	r20, 0x00	; 0
+ 1b8:	6a e1       	ldi	r22, 0x1A	; 26
+ 1ba:	89 81       	ldd	r24, Y+1	; 0x01
+ 1bc:	0e 94 0e 02 	call	0x41c	; 0x41c <_Z13TwiWriteToReghhh>
+ 1c0:	88 23       	and	r24, r24
+ 1c2:	b1 f0       	breq	.+44     	; 0x1f0 <_ZN7Mpu60504InitEhh+0x6c>
+ 1c4:	40 2f       	mov	r20, r16
+ 1c6:	44 0f       	add	r20, r20
+ 1c8:	44 0f       	add	r20, r20
+ 1ca:	44 0f       	add	r20, r20
+ 1cc:	6b e1       	ldi	r22, 0x1B	; 27
+ 1ce:	89 81       	ldd	r24, Y+1	; 0x01
+ 1d0:	0e 94 0e 02 	call	0x41c	; 0x41c <_Z13TwiWriteToReghhh>
+ 1d4:	88 23       	and	r24, r24
+ 1d6:	61 f0       	breq	.+24     	; 0x1f0 <_ZN7Mpu60504InitEhh+0x6c>
+ 1d8:	41 2f       	mov	r20, r17
+ 1da:	44 0f       	add	r20, r20
+ 1dc:	44 0f       	add	r20, r20
+ 1de:	44 0f       	add	r20, r20
+ 1e0:	6c e1       	ldi	r22, 0x1C	; 28
+ 1e2:	89 81       	ldd	r24, Y+1	; 0x01
+ 1e4:	0e 94 0e 02 	call	0x41c	; 0x41c <_Z13TwiWriteToReghhh>
+ 1e8:	03 c0       	rjmp	.+6      	; 0x1f0 <_ZN7Mpu60504InitEhh+0x6c>
+ 1ea:	80 e0       	ldi	r24, 0x00	; 0
+ 1ec:	01 c0       	rjmp	.+2      	; 0x1f0 <_ZN7Mpu60504InitEhh+0x6c>
+ 1ee:	80 e0       	ldi	r24, 0x00	; 0
+ 1f0:	df 91       	pop	r29
+ 1f2:	cf 91       	pop	r28
+ 1f4:	1f 91       	pop	r17
+ 1f6:	0f 91       	pop	r16
+ 1f8:	08 95       	ret
+
+000001fa <_ZN7Mpu605016GetAccelerometerEPiS0_S0_>:
+ 1fa:	cf 92       	push	r12
+ 1fc:	df 92       	push	r13
+ 1fe:	ef 92       	push	r14
+ 200:	ff 92       	push	r15
+ 202:	0f 93       	push	r16
+ 204:	1f 93       	push	r17
+ 206:	cf 93       	push	r28
+ 208:	df 93       	push	r29
+ 20a:	00 d0       	rcall	.+0      	; 0x20c <_ZN7Mpu605016GetAccelerometerEPiS0_S0_+0x12>
+ 20c:	00 d0       	rcall	.+0      	; 0x20e <_ZN7Mpu605016GetAccelerometerEPiS0_S0_+0x14>
+ 20e:	00 d0       	rcall	.+0      	; 0x210 <_ZN7Mpu605016GetAccelerometerEPiS0_S0_+0x16>
+ 210:	cd b7       	in	r28, 0x3d	; 61
+ 212:	de b7       	in	r29, 0x3e	; 62
+ 214:	6b 01       	movw	r12, r22
+ 216:	7a 01       	movw	r14, r20
+ 218:	89 01       	movw	r16, r18
+ 21a:	26 e0       	ldi	r18, 0x06	; 6
+ 21c:	ae 01       	movw	r20, r28
+ 21e:	4f 5f       	subi	r20, 0xFF	; 255
+ 220:	5f 4f       	sbci	r21, 0xFF	; 255
+ 222:	6b e3       	ldi	r22, 0x3B	; 59
+ 224:	fc 01       	movw	r30, r24
+ 226:	81 81       	ldd	r24, Z+1	; 0x01
+ 228:	0e 94 a1 02 	call	0x542	; 0x542 <_Z14TwiReadFromReghhPhh>
+ 22c:	88 23       	and	r24, r24
+ 22e:	d9 f0       	breq	.+54     	; 0x266 <_ZN7Mpu605016GetAccelerometerEPiS0_S0_+0x6c>
+ 230:	29 81       	ldd	r18, Y+1	; 0x01
+ 232:	30 e0       	ldi	r19, 0x00	; 0
+ 234:	32 2f       	mov	r19, r18
+ 236:	22 27       	eor	r18, r18
+ 238:	9a 81       	ldd	r25, Y+2	; 0x02
+ 23a:	29 2b       	or	r18, r25
+ 23c:	f6 01       	movw	r30, r12
+ 23e:	31 83       	std	Z+1, r19	; 0x01
+ 240:	20 83       	st	Z, r18
+ 242:	6b 81       	ldd	r22, Y+3	; 0x03
+ 244:	70 e0       	ldi	r23, 0x00	; 0
+ 246:	76 2f       	mov	r23, r22
+ 248:	66 27       	eor	r22, r22
+ 24a:	9c 81       	ldd	r25, Y+4	; 0x04
+ 24c:	69 2b       	or	r22, r25
+ 24e:	f7 01       	movw	r30, r14
+ 250:	71 83       	std	Z+1, r23	; 0x01
+ 252:	60 83       	st	Z, r22
+ 254:	4d 81       	ldd	r20, Y+5	; 0x05
+ 256:	50 e0       	ldi	r21, 0x00	; 0
+ 258:	54 2f       	mov	r21, r20
+ 25a:	44 27       	eor	r20, r20
+ 25c:	9e 81       	ldd	r25, Y+6	; 0x06
+ 25e:	49 2b       	or	r20, r25
+ 260:	f8 01       	movw	r30, r16
+ 262:	51 83       	std	Z+1, r21	; 0x01
+ 264:	40 83       	st	Z, r20
+ 266:	26 96       	adiw	r28, 0x06	; 6
+ 268:	0f b6       	in	r0, 0x3f	; 63
+ 26a:	f8 94       	cli
+ 26c:	de bf       	out	0x3e, r29	; 62
+ 26e:	0f be       	out	0x3f, r0	; 63
+ 270:	cd bf       	out	0x3d, r28	; 61
+ 272:	df 91       	pop	r29
+ 274:	cf 91       	pop	r28
+ 276:	1f 91       	pop	r17
+ 278:	0f 91       	pop	r16
+ 27a:	ff 90       	pop	r15
+ 27c:	ef 90       	pop	r14
+ 27e:	df 90       	pop	r13
+ 280:	cf 90       	pop	r12
+ 282:	08 95       	ret
+
+00000284 <_ZN7Mpu605012GetGyroscopeEPiS0_S0_>:
+
+bool Mpu6050::GetGyroscope(int* gx, int* gy, int* gz)
+{
+ 284:	cf 92       	push	r12
+ 286:	df 92       	push	r13
+ 288:	ef 92       	push	r14
+ 28a:	ff 92       	push	r15
+ 28c:	0f 93       	push	r16
+ 28e:	1f 93       	push	r17
+ 290:	cf 93       	push	r28
+ 292:	df 93       	push	r29
+ 294:	00 d0       	rcall	.+0      	; 0x296 <_ZN7Mpu605012GetGyroscopeEPiS0_S0_+0x12>
+ 296:	00 d0       	rcall	.+0      	; 0x298 <_ZN7Mpu605012GetGyroscopeEPiS0_S0_+0x14>
+ 298:	00 d0       	rcall	.+0      	; 0x29a <_ZN7Mpu605012GetGyroscopeEPiS0_S0_+0x16>
+ 29a:	cd b7       	in	r28, 0x3d	; 61
+ 29c:	de b7       	in	r29, 0x3e	; 62
+ 29e:	6b 01       	movw	r12, r22
+ 2a0:	7a 01       	movw	r14, r20
+ 2a2:	89 01       	movw	r16, r18
+	ubyte buff[6];
+	if(!TwiReadFromReg(addr, GYRO_XH, buff, 6)) return false;
+ 2a4:	26 e0       	ldi	r18, 0x06	; 6
+ 2a6:	ae 01       	movw	r20, r28
+ 2a8:	4f 5f       	subi	r20, 0xFF	; 255
+ 2aa:	5f 4f       	sbci	r21, 0xFF	; 255
+ 2ac:	63 e4       	ldi	r22, 0x43	; 67
+ 2ae:	fc 01       	movw	r30, r24
+ 2b0:	81 81       	ldd	r24, Z+1	; 0x01
+ 2b2:	0e 94 a1 02 	call	0x542	; 0x542 <_Z14TwiReadFromReghhPhh>
+ 2b6:	88 23       	and	r24, r24
+ 2b8:	d9 f0       	breq	.+54     	; 0x2f0 <_ZN7Mpu605012GetGyroscopeEPiS0_S0_+0x6c>
+
+	*gx = buff[0] << 8 | buff[1];
+ 2ba:	29 81       	ldd	r18, Y+1	; 0x01
+ 2bc:	30 e0       	ldi	r19, 0x00	; 0
+ 2be:	32 2f       	mov	r19, r18
+ 2c0:	22 27       	eor	r18, r18
+ 2c2:	9a 81       	ldd	r25, Y+2	; 0x02
+ 2c4:	29 2b       	or	r18, r25
+ 2c6:	f6 01       	movw	r30, r12
+ 2c8:	31 83       	std	Z+1, r19	; 0x01
+ 2ca:	20 83       	st	Z, r18
+	*gy = buff[2] << 8 | buff[3];
+ 2cc:	6b 81       	ldd	r22, Y+3	; 0x03
+ 2ce:	70 e0       	ldi	r23, 0x00	; 0
+ 2d0:	76 2f       	mov	r23, r22
+ 2d2:	66 27       	eor	r22, r22
+ 2d4:	9c 81       	ldd	r25, Y+4	; 0x04
+ 2d6:	69 2b       	or	r22, r25
+ 2d8:	f7 01       	movw	r30, r14
+ 2da:	71 83       	std	Z+1, r23	; 0x01
+ 2dc:	60 83       	st	Z, r22
+	*gz = buff[4] << 8 | buff[5];
+ 2de:	4d 81       	ldd	r20, Y+5	; 0x05
+ 2e0:	50 e0       	ldi	r21, 0x00	; 0
+ 2e2:	54 2f       	mov	r21, r20
+ 2e4:	44 27       	eor	r20, r20
+ 2e6:	9e 81       	ldd	r25, Y+6	; 0x06
+ 2e8:	49 2b       	or	r20, r25
+ 2ea:	f8 01       	movw	r30, r16
+ 2ec:	51 83       	std	Z+1, r21	; 0x01
+ 2ee:	40 83       	st	Z, r20
+
+	return true;
+}
+ 2f0:	26 96       	adiw	r28, 0x06	; 6
+ 2f2:	0f b6       	in	r0, 0x3f	; 63
+ 2f4:	f8 94       	cli
+ 2f6:	de bf       	out	0x3e, r29	; 62
+ 2f8:	0f be       	out	0x3f, r0	; 63
+ 2fa:	cd bf       	out	0x3d, r28	; 61
+ 2fc:	df 91       	pop	r29
+ 2fe:	cf 91       	pop	r28
+ 300:	1f 91       	pop	r17
+ 302:	0f 91       	pop	r16
+ 304:	ff 90       	pop	r15
+ 306:	ef 90       	pop	r14
+ 308:	df 90       	pop	r13
+ 30a:	cf 90       	pop	r12
+ 30c:	08 95       	ret
+
+0000030e <_ZN7Mpu605014GetTemperatureEPi>:
+
+bool Mpu6050::GetTemperature(int* temp)
+{
+ 30e:	0f 93       	push	r16
+ 310:	1f 93       	push	r17
+ 312:	cf 93       	push	r28
+ 314:	df 93       	push	r29
+ 316:	00 d0       	rcall	.+0      	; 0x318 <_ZN7Mpu605014GetTemperatureEPi+0xa>
+ 318:	cd b7       	in	r28, 0x3d	; 61
+ 31a:	de b7       	in	r29, 0x3e	; 62
+ 31c:	8b 01       	movw	r16, r22
+	ubyte buff[2];
+	if(!TwiReadFromReg(addr, TEMPH, buff, 2)) return false;
+ 31e:	22 e0       	ldi	r18, 0x02	; 2
+ 320:	ae 01       	movw	r20, r28
+ 322:	4f 5f       	subi	r20, 0xFF	; 255
+ 324:	5f 4f       	sbci	r21, 0xFF	; 255
+ 326:	61 e4       	ldi	r22, 0x41	; 65
+ 328:	fc 01       	movw	r30, r24
+ 32a:	81 81       	ldd	r24, Z+1	; 0x01
+ 32c:	0e 94 a1 02 	call	0x542	; 0x542 <_Z14TwiReadFromReghhPhh>
+ 330:	88 23       	and	r24, r24
+ 332:	49 f0       	breq	.+18     	; 0x346 <_ZN7Mpu605014GetTemperatureEPi+0x38>
+
+	*temp = buff[0] << 8 | buff[1];
+ 334:	29 81       	ldd	r18, Y+1	; 0x01
+ 336:	30 e0       	ldi	r19, 0x00	; 0
+ 338:	32 2f       	mov	r19, r18
+ 33a:	22 27       	eor	r18, r18
+ 33c:	9a 81       	ldd	r25, Y+2	; 0x02
+ 33e:	29 2b       	or	r18, r25
+ 340:	f8 01       	movw	r30, r16
+ 342:	31 83       	std	Z+1, r19	; 0x01
+ 344:	20 83       	st	Z, r18
+	return true;
+ 346:	0f 90       	pop	r0
+ 348:	0f 90       	pop	r0
+ 34a:	df 91       	pop	r29
+ 34c:	cf 91       	pop	r28
+ 34e:	1f 91       	pop	r17
+ 350:	0f 91       	pop	r16
+ 352:	08 95       	ret
+
+00000354 <_Z7TwiInitv>:
+ubyte lastTwiAction;
+ubyte lastTwiStatus;
+
+void TwiInit()
+{
+	TWSR = 0;
+ 354:	10 92 b9 00 	sts	0x00B9, r1	; 0x8000b9 <__TEXT_REGION_LENGTH__+0x7e00b9>
+	TWBR = 72; // 100 kHz при 16 МHz F_CPU
+ 358:	88 e4       	ldi	r24, 0x48	; 72
+ 35a:	80 93 b8 00 	sts	0x00B8, r24	; 0x8000b8 <__TEXT_REGION_LENGTH__+0x7e00b8>
+
+	DDRB &= ~((1<<5) | (1<<4));
+ 35e:	84 b1       	in	r24, 0x04	; 4
+ 360:	8f 7c       	andi	r24, 0xCF	; 207
+ 362:	84 b9       	out	0x04, r24	; 4
+	PORTC |= (1<<5) | (1<<4);	// pull-up
+ 364:	88 b1       	in	r24, 0x08	; 8
+ 366:	80 63       	ori	r24, 0x30	; 48
+ 368:	88 b9       	out	0x08, r24	; 8
+
+	TWCR = 1 << TWEN;
+ 36a:	84 e0       	ldi	r24, 0x04	; 4
+ 36c:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
+ 370:	08 95       	ret
+
+00000372 <_Z8TwiStartv>:
+}
+
+bool TwiStart()
+{
+	TWCR = (1<<TWINT) | (1<<TWSTA) | (1<<TWEN);
+ 372:	84 ea       	ldi	r24, 0xA4	; 164
+ 374:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
+	TwiWaitInt();
+ 378:	ec eb       	ldi	r30, 0xBC	; 188
+ 37a:	f0 e0       	ldi	r31, 0x00	; 0
+ 37c:	80 81       	ld	r24, Z
+ 37e:	88 23       	and	r24, r24
+ 380:	ec f7       	brge	.-6      	; 0x37c <_Z8TwiStartv+0xa>
+	lastTwiAction = TWI_ACTION_START;
+ 382:	10 92 53 01 	sts	0x0153, r1	; 0x800153 <lastTwiAction>
+	lastTwiStatus = TwiStatus();
+ 386:	90 91 b9 00 	lds	r25, 0x00B9	; 0x8000b9 <__TEXT_REGION_LENGTH__+0x7e00b9>
+ 38a:	98 7f       	andi	r25, 0xF8	; 248
+ 38c:	90 93 52 01 	sts	0x0152, r25	; 0x800152 <lastTwiStatus>
+	return (lastTwiStatus == TW_START) || (lastTwiStatus == TW_REP_START);
+ 390:	98 30       	cpi	r25, 0x08	; 8
+ 392:	29 f0       	breq	.+10     	; 0x39e <_Z8TwiStartv+0x2c>
+ 394:	81 e0       	ldi	r24, 0x01	; 1
+ 396:	90 31       	cpi	r25, 0x10	; 16
+ 398:	19 f0       	breq	.+6      	; 0x3a0 <_Z8TwiStartv+0x2e>
+ 39a:	80 e0       	ldi	r24, 0x00	; 0
+ 39c:	08 95       	ret
+ 39e:	81 e0       	ldi	r24, 0x01	; 1
+}
+ 3a0:	08 95       	ret
+
+000003a2 <_Z7TwiStopv>:
+
+void TwiStop()
+{
+	TWCR = (1<<TWINT)|(1<<TWSTO)|(1<<TWEN);
+ 3a2:	84 e9       	ldi	r24, 0x94	; 148
+ 3a4:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
+ 3a8:	08 95       	ret
+
+000003aa <_Z8TwiWriteh>:
+}
+
+void TwiWrite(ubyte data)
+{
+	TWDR = data;
+ 3aa:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7e00bb>
+	TWCR = (1<<TWINT) | (1<<TWEN);
+ 3ae:	84 e8       	ldi	r24, 0x84	; 132
+ 3b0:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
+	TwiWaitInt();
+ 3b4:	ec eb       	ldi	r30, 0xBC	; 188
+ 3b6:	f0 e0       	ldi	r31, 0x00	; 0
+ 3b8:	80 81       	ld	r24, Z
+ 3ba:	88 23       	and	r24, r24
+ 3bc:	ec f7       	brge	.-6      	; 0x3b8 <_Z8TwiWriteh+0xe>
+	lastTwiAction = TWI_ACTION_WRITE;
+ 3be:	81 e0       	ldi	r24, 0x01	; 1
+ 3c0:	80 93 53 01 	sts	0x0153, r24	; 0x800153 <lastTwiAction>
+	lastTwiStatus = TwiStatus();
+ 3c4:	80 91 b9 00 	lds	r24, 0x00B9	; 0x8000b9 <__TEXT_REGION_LENGTH__+0x7e00b9>
+ 3c8:	88 7f       	andi	r24, 0xF8	; 248
+ 3ca:	80 93 52 01 	sts	0x0152, r24	; 0x800152 <lastTwiStatus>
+ 3ce:	08 95       	ret
+
+000003d0 <_Z10TwiReadAckv>:
+}
+
+ubyte TwiReadAck()
+{
+	TWCR = (1<<TWINT) | (1<<TWEN) | (1<<TWEA);
+ 3d0:	84 ec       	ldi	r24, 0xC4	; 196
+ 3d2:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
+	TwiWaitInt();
+ 3d6:	ec eb       	ldi	r30, 0xBC	; 188
+ 3d8:	f0 e0       	ldi	r31, 0x00	; 0
+ 3da:	80 81       	ld	r24, Z
+ 3dc:	88 23       	and	r24, r24
+ 3de:	ec f7       	brge	.-6      	; 0x3da <_Z10TwiReadAckv+0xa>
+	lastTwiAction = TWI_ACTION_READ_ACK;
+ 3e0:	82 e0       	ldi	r24, 0x02	; 2
+ 3e2:	80 93 53 01 	sts	0x0153, r24	; 0x800153 <lastTwiAction>
+	lastTwiStatus = TwiStatus();
+ 3e6:	80 91 b9 00 	lds	r24, 0x00B9	; 0x8000b9 <__TEXT_REGION_LENGTH__+0x7e00b9>
+ 3ea:	88 7f       	andi	r24, 0xF8	; 248
+ 3ec:	80 93 52 01 	sts	0x0152, r24	; 0x800152 <lastTwiStatus>
+	return TWDR;
+ 3f0:	80 91 bb 00 	lds	r24, 0x00BB	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7e00bb>
+}
+ 3f4:	08 95       	ret
+
+000003f6 <_Z11TwiReadNackv>:
+
+ubyte TwiReadNack()
+{
+	TWCR = (1<<TWINT) | (1<<TWEN);
+ 3f6:	84 e8       	ldi	r24, 0x84	; 132
+ 3f8:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
+	TwiWaitInt();
+ 3fc:	ec eb       	ldi	r30, 0xBC	; 188
+ 3fe:	f0 e0       	ldi	r31, 0x00	; 0
+ 400:	80 81       	ld	r24, Z
+ 402:	88 23       	and	r24, r24
+ 404:	ec f7       	brge	.-6      	; 0x400 <__FUSE_REGION_LENGTH__>
+	lastTwiAction = TWI_ACTION_READ_NACK;
+ 406:	83 e0       	ldi	r24, 0x03	; 3
+ 408:	80 93 53 01 	sts	0x0153, r24	; 0x800153 <lastTwiAction>
+	lastTwiStatus = TwiStatus();
+ 40c:	80 91 b9 00 	lds	r24, 0x00B9	; 0x8000b9 <__TEXT_REGION_LENGTH__+0x7e00b9>
+ 410:	88 7f       	andi	r24, 0xF8	; 248
+ 412:	80 93 52 01 	sts	0x0152, r24	; 0x800152 <lastTwiStatus>
+	return TWDR;
+ 416:	80 91 bb 00 	lds	r24, 0x00BB	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7e00bb>
+ 41a:	08 95       	ret
+
+0000041c <_Z13TwiWriteToReghhh>:
+	 TwiStop();
+	 return true;
+ }
+
+ bool TwiWriteToReg(ubyte addr, ubyte regAddr, ubyte val)
+ {
+ 41c:	0f 93       	push	r16
+ 41e:	1f 93       	push	r17
+ 420:	cf 93       	push	r28
+ 422:	df 93       	push	r29
+ 424:	d8 2f       	mov	r29, r24
+ 426:	16 2f       	mov	r17, r22
+ 428:	04 2f       	mov	r16, r20
+	 if(!TwiStart()) return false;
+ 42a:	0e 94 b9 01 	call	0x372	; 0x372 <_Z8TwiStartv>
+ 42e:	c8 2f       	mov	r28, r24
+ 430:	88 23       	and	r24, r24
+ 432:	f1 f0       	breq	.+60     	; 0x470 <_Z13TwiWriteToReghhh+0x54>
+
+	 TwiWrite(addr << 1); // ADDR + W
+ 434:	8d 2f       	mov	r24, r29
+ 436:	88 0f       	add	r24, r24
+ 438:	0e 94 d5 01 	call	0x3aa	; 0x3aa <_Z8TwiWriteh>
+	 if(lastTwiStatus != TW_MT_SLA_ACK) return false;
+ 43c:	80 91 52 01 	lds	r24, 0x0152	; 0x800152 <lastTwiStatus>
+ 440:	88 31       	cpi	r24, 0x18	; 24
+ 442:	89 f4       	brne	.+34     	; 0x466 <_Z13TwiWriteToReghhh+0x4a>
+
+	 TwiWrite(regAddr);
+ 444:	81 2f       	mov	r24, r17
+ 446:	0e 94 d5 01 	call	0x3aa	; 0x3aa <_Z8TwiWriteh>
+	 if(lastTwiStatus != TW_MT_DATA_ACK) return false;
+ 44a:	80 91 52 01 	lds	r24, 0x0152	; 0x800152 <lastTwiStatus>
+ 44e:	88 32       	cpi	r24, 0x28	; 40
+ 450:	61 f4       	brne	.+24     	; 0x46a <_Z13TwiWriteToReghhh+0x4e>
+
+	 TwiWrite(val);
+ 452:	80 2f       	mov	r24, r16
+ 454:	0e 94 d5 01 	call	0x3aa	; 0x3aa <_Z8TwiWriteh>
+	 if(lastTwiStatus != TW_MT_DATA_ACK) return false;
+ 458:	80 91 52 01 	lds	r24, 0x0152	; 0x800152 <lastTwiStatus>
+ 45c:	88 32       	cpi	r24, 0x28	; 40
+ 45e:	39 f4       	brne	.+14     	; 0x46e <_Z13TwiWriteToReghhh+0x52>
+
+	 TwiStop();
+ 460:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_Z7TwiStopv>
+	 return true;
+ 464:	05 c0       	rjmp	.+10     	; 0x470 <_Z13TwiWriteToReghhh+0x54>
+ bool TwiWriteToReg(ubyte addr, ubyte regAddr, ubyte val)
+ {
+	 if(!TwiStart()) return false;
+
+	 TwiWrite(addr << 1); // ADDR + W
+	 if(lastTwiStatus != TW_MT_SLA_ACK) return false;
+ 466:	c0 e0       	ldi	r28, 0x00	; 0
+ 468:	03 c0       	rjmp	.+6      	; 0x470 <_Z13TwiWriteToReghhh+0x54>
+
+	 TwiWrite(regAddr);
+	 if(lastTwiStatus != TW_MT_DATA_ACK) return false;
+ 46a:	c0 e0       	ldi	r28, 0x00	; 0
+ 46c:	01 c0       	rjmp	.+2      	; 0x470 <_Z13TwiWriteToReghhh+0x54>
+
+	 TwiWrite(val);
+	 if(lastTwiStatus != TW_MT_DATA_ACK) return false;
+ 46e:	c0 e0       	ldi	r28, 0x00	; 0
+
+	 TwiStop();
+	 return true;
+ }
+ 470:	8c 2f       	mov	r24, r28
+ 472:	df 91       	pop	r29
+ 474:	cf 91       	pop	r28
+ 476:	1f 91       	pop	r17
+ 478:	0f 91       	pop	r16
+ 47a:	08 95       	ret
+
+0000047c <_Z12TwiSelectReghh>:
+
+ bool TwiSelectReg(ubyte addr, ubyte regAddr)
+ {
+ 47c:	1f 93       	push	r17
+ 47e:	cf 93       	push	r28
+ 480:	df 93       	push	r29
+ 482:	d8 2f       	mov	r29, r24
+ 484:	16 2f       	mov	r17, r22
+	 if(!TwiStart()) return false;
+ 486:	0e 94 b9 01 	call	0x372	; 0x372 <_Z8TwiStartv>
+ 48a:	c8 2f       	mov	r28, r24
+ 48c:	88 23       	and	r24, r24
+ 48e:	a9 f0       	breq	.+42     	; 0x4ba <_Z12TwiSelectReghh+0x3e>
+
+	 TwiWrite(addr << 1); // ADDR + W
+ 490:	8d 2f       	mov	r24, r29
+ 492:	88 0f       	add	r24, r24
+ 494:	0e 94 d5 01 	call	0x3aa	; 0x3aa <_Z8TwiWriteh>
+	 if(lastTwiStatus != TW_MT_SLA_ACK) return false;
+ 498:	80 91 52 01 	lds	r24, 0x0152	; 0x800152 <lastTwiStatus>
+ 49c:	88 31       	cpi	r24, 0x18	; 24
+ 49e:	51 f4       	brne	.+20     	; 0x4b4 <_Z12TwiSelectReghh+0x38>
+
+	 TwiWrite(regAddr);
+ 4a0:	81 2f       	mov	r24, r17
+ 4a2:	0e 94 d5 01 	call	0x3aa	; 0x3aa <_Z8TwiWriteh>
+	 if(lastTwiStatus != TW_MT_DATA_ACK) return false;
+ 4a6:	80 91 52 01 	lds	r24, 0x0152	; 0x800152 <lastTwiStatus>
+ 4aa:	88 32       	cpi	r24, 0x28	; 40
+ 4ac:	29 f4       	brne	.+10     	; 0x4b8 <_Z12TwiSelectReghh+0x3c>
+
+	 TwiStop();
+ 4ae:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_Z7TwiStopv>
+	 return true;
+ 4b2:	03 c0       	rjmp	.+6      	; 0x4ba <_Z12TwiSelectReghh+0x3e>
+ bool TwiSelectReg(ubyte addr, ubyte regAddr)
+ {
+	 if(!TwiStart()) return false;
+
+	 TwiWrite(addr << 1); // ADDR + W
+	 if(lastTwiStatus != TW_MT_SLA_ACK) return false;
+ 4b4:	c0 e0       	ldi	r28, 0x00	; 0
+ 4b6:	01 c0       	rjmp	.+2      	; 0x4ba <_Z12TwiSelectReghh+0x3e>
+
+	 TwiWrite(regAddr);
+	 if(lastTwiStatus != TW_MT_DATA_ACK) return false;
+ 4b8:	c0 e0       	ldi	r28, 0x00	; 0
+
+	 TwiStop();
+	 return true;
+ }
+ 4ba:	8c 2f       	mov	r24, r28
+ 4bc:	df 91       	pop	r29
+ 4be:	cf 91       	pop	r28
+ 4c0:	1f 91       	pop	r17
+ 4c2:	08 95       	ret
+
+000004c4 <_Z11TwiReadFromhPhh>:
+
+ bool TwiReadFrom(ubyte addr, ubyte* recvBuff, ubyte len)
+ {
+ 4c4:	cf 92       	push	r12
+ 4c6:	df 92       	push	r13
+ 4c8:	ef 92       	push	r14
+ 4ca:	ff 92       	push	r15
+ 4cc:	0f 93       	push	r16
+ 4ce:	1f 93       	push	r17
+ 4d0:	cf 93       	push	r28
+ 4d2:	df 93       	push	r29
+ 4d4:	c8 2f       	mov	r28, r24
+ 4d6:	7b 01       	movw	r14, r22
+ 4d8:	04 2f       	mov	r16, r20
+	 if(!TwiStart()) return false;
+ 4da:	0e 94 b9 01 	call	0x372	; 0x372 <_Z8TwiStartv>
+ 4de:	18 2f       	mov	r17, r24
+ 4e0:	88 23       	and	r24, r24
+ 4e2:	29 f1       	breq	.+74     	; 0x52e <_Z11TwiReadFromhPhh+0x6a>
+
+	 TwiWrite((addr << 1) | R);
+ 4e4:	8c 2f       	mov	r24, r28
+ 4e6:	88 0f       	add	r24, r24
+ 4e8:	81 60       	ori	r24, 0x01	; 1
+ 4ea:	0e 94 d5 01 	call	0x3aa	; 0x3aa <_Z8TwiWriteh>
+	 if(lastTwiStatus != TW_MR_SLA_ACK) return false;
+ 4ee:	80 91 52 01 	lds	r24, 0x0152	; 0x800152 <lastTwiStatus>
+ 4f2:	80 34       	cpi	r24, 0x40	; 64
+ 4f4:	d9 f4       	brne	.+54     	; 0x52c <_Z11TwiReadFromhPhh+0x68>
+
+	 int lim = len-1;
+ 4f6:	80 2f       	mov	r24, r16
+ 4f8:	90 e0       	ldi	r25, 0x00	; 0
+ 4fa:	01 97       	sbiw	r24, 0x01	; 1
+	 for(int i = 0; i < lim; i++)
+ 4fc:	18 16       	cp	r1, r24
+ 4fe:	19 06       	cpc	r1, r25
+ 500:	54 f4       	brge	.+20     	; 0x516 <_Z11TwiReadFromhPhh+0x52>
+ 502:	e7 01       	movw	r28, r14
+ 504:	6c 01       	movw	r12, r24
+ 506:	ce 0c       	add	r12, r14
+ 508:	df 1c       	adc	r13, r15
+	 {
+		 recvBuff[i] = TwiReadAck();
+ 50a:	0e 94 e8 01 	call	0x3d0	; 0x3d0 <_Z10TwiReadAckv>
+ 50e:	89 93       	st	Y+, r24
+
+	 TwiWrite((addr << 1) | R);
+	 if(lastTwiStatus != TW_MR_SLA_ACK) return false;
+
+	 int lim = len-1;
+	 for(int i = 0; i < lim; i++)
+ 510:	cc 15       	cp	r28, r12
+ 512:	dd 05       	cpc	r29, r13
+ 514:	d1 f7       	brne	.-12     	; 0x50a <_Z11TwiReadFromhPhh+0x46>
+	 {
+		 recvBuff[i] = TwiReadAck();
+		 // TODO: проверка за провал
+	 }
+	 recvBuff[len-1] = TwiReadNack();
+ 516:	c0 2f       	mov	r28, r16
+ 518:	d0 e0       	ldi	r29, 0x00	; 0
+ 51a:	21 97       	sbiw	r28, 0x01	; 1
+ 51c:	ce 0d       	add	r28, r14
+ 51e:	df 1d       	adc	r29, r15
+ 520:	0e 94 fb 01 	call	0x3f6	; 0x3f6 <_Z11TwiReadNackv>
+ 524:	88 83       	st	Y, r24
+
+	 TwiStop();
+ 526:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_Z7TwiStopv>
+	 return true;
+ 52a:	01 c0       	rjmp	.+2      	; 0x52e <_Z11TwiReadFromhPhh+0x6a>
+ bool TwiReadFrom(ubyte addr, ubyte* recvBuff, ubyte len)
+ {
+	 if(!TwiStart()) return false;
+
+	 TwiWrite((addr << 1) | R);
+	 if(lastTwiStatus != TW_MR_SLA_ACK) return false;
+ 52c:	10 e0       	ldi	r17, 0x00	; 0
+	 }
+	 recvBuff[len-1] = TwiReadNack();
+
+	 TwiStop();
+	 return true;
+ }
+ 52e:	81 2f       	mov	r24, r17
+ 530:	df 91       	pop	r29
+ 532:	cf 91       	pop	r28
+ 534:	1f 91       	pop	r17
+ 536:	0f 91       	pop	r16
+ 538:	ff 90       	pop	r15
+ 53a:	ef 90       	pop	r14
+ 53c:	df 90       	pop	r13
+ 53e:	cf 90       	pop	r12
+ 540:	08 95       	ret
+
+00000542 <_Z14TwiReadFromReghhPhh>:
+
+ bool TwiReadFromReg(ubyte addr, ubyte regAddr, ubyte* recvBuff, ubyte len)
+ {
+ 542:	0f 93       	push	r16
+ 544:	1f 93       	push	r17
+ 546:	cf 93       	push	r28
+ 548:	df 93       	push	r29
+ 54a:	c8 2f       	mov	r28, r24
+ 54c:	8a 01       	movw	r16, r20
+ 54e:	d2 2f       	mov	r29, r18
+	 if(!TwiSelectReg(addr, regAddr)) return false;
+ 550:	0e 94 3e 02 	call	0x47c	; 0x47c <_Z12TwiSelectReghh>
+ 554:	88 23       	and	r24, r24
+ 556:	29 f0       	breq	.+10     	; 0x562 <_Z14TwiReadFromReghhPhh+0x20>
+
+	 return TwiReadFrom(addr, recvBuff, len);
+ 558:	4d 2f       	mov	r20, r29
+ 55a:	b8 01       	movw	r22, r16
+ 55c:	8c 2f       	mov	r24, r28
+ 55e:	0e 94 62 02 	call	0x4c4	; 0x4c4 <_Z11TwiReadFromhPhh>
+ }
+ 562:	df 91       	pop	r29
+ 564:	cf 91       	pop	r28
+ 566:	1f 91       	pop	r17
+ 568:	0f 91       	pop	r16
+ 56a:	08 95       	ret
+
+0000056c <_Z9UsartInitv>:
+	buff += len;
+	while(len--) *--buff = rxBuff[--rxIdx];
+	sei();
+
+	return true;
+}
+ 56c:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7e00c5>
+ 570:	82 e2       	ldi	r24, 0x22	; 34
+ 572:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7e00c4>
+ 576:	e0 ec       	ldi	r30, 0xC0	; 192
+ 578:	f0 e0       	ldi	r31, 0x00	; 0
+ 57a:	80 81       	ld	r24, Z
+ 57c:	82 60       	ori	r24, 0x02	; 2
+ 57e:	80 83       	st	Z, r24
+ 580:	e1 ec       	ldi	r30, 0xC1	; 193
+ 582:	f0 e0       	ldi	r31, 0x00	; 0
+ 584:	80 81       	ld	r24, Z
+ 586:	88 69       	ori	r24, 0x98	; 152
+ 588:	80 83       	st	Z, r24
+ 58a:	78 94       	sei
+ 58c:	08 95       	ret
+
+0000058e <_Z9UsartSendc>:
+ 58e:	e0 ec       	ldi	r30, 0xC0	; 192
+ 590:	f0 e0       	ldi	r31, 0x00	; 0
+ 592:	90 81       	ld	r25, Z
+ 594:	95 ff       	sbrs	r25, 5
+ 596:	fd cf       	rjmp	.-6      	; 0x592 <_Z9UsartSendc+0x4>
+ 598:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
+ 59c:	08 95       	ret
+
+0000059e <_Z9UsartSendPc>:
+ 59e:	cf 93       	push	r28
+ 5a0:	df 93       	push	r29
+ 5a2:	fc 01       	movw	r30, r24
+ 5a4:	20 81       	ld	r18, Z
+ 5a6:	22 23       	and	r18, r18
+ 5a8:	69 f0       	breq	.+26     	; 0x5c4 <_Z9UsartSendPc+0x26>
+ 5aa:	dc 01       	movw	r26, r24
+ 5ac:	11 96       	adiw	r26, 0x01	; 1
+ 5ae:	e0 ec       	ldi	r30, 0xC0	; 192
+ 5b0:	f0 e0       	ldi	r31, 0x00	; 0
+ 5b2:	c6 ec       	ldi	r28, 0xC6	; 198
+ 5b4:	d0 e0       	ldi	r29, 0x00	; 0
+ 5b6:	90 81       	ld	r25, Z
+ 5b8:	95 ff       	sbrs	r25, 5
+ 5ba:	fd cf       	rjmp	.-6      	; 0x5b6 <_Z9UsartSendPc+0x18>
+ 5bc:	28 83       	st	Y, r18
+ 5be:	2d 91       	ld	r18, X+
+ 5c0:	21 11       	cpse	r18, r1
+ 5c2:	f9 cf       	rjmp	.-14     	; 0x5b6 <_Z9UsartSendPc+0x18>
+ 5c4:	df 91       	pop	r29
+ 5c6:	cf 91       	pop	r28
+ 5c8:	08 95       	ret
+
+000005ca <_Z9UsartSendi>:
+ 5ca:	ef 92       	push	r14
+ 5cc:	ff 92       	push	r15
+ 5ce:	0f 93       	push	r16
+ 5d0:	1f 93       	push	r17
+ 5d2:	cf 93       	push	r28
+ 5d4:	df 93       	push	r29
+ 5d6:	00 d0       	rcall	.+0      	; 0x5d8 <_Z9UsartSendi+0xe>
+ 5d8:	00 d0       	rcall	.+0      	; 0x5da <_Z9UsartSendi+0x10>
+ 5da:	1f 92       	push	r1
+ 5dc:	cd b7       	in	r28, 0x3d	; 61
+ 5de:	de b7       	in	r29, 0x3e	; 62
+ 5e0:	99 23       	and	r25, r25
+ 5e2:	5c f4       	brge	.+22     	; 0x5fa <_Z9UsartSendi+0x30>
+ 5e4:	91 95       	neg	r25
+ 5e6:	81 95       	neg	r24
+ 5e8:	91 09       	sbc	r25, r1
+ 5ea:	e0 ec       	ldi	r30, 0xC0	; 192
+ 5ec:	f0 e0       	ldi	r31, 0x00	; 0
+ 5ee:	20 81       	ld	r18, Z
+ 5f0:	25 ff       	sbrs	r18, 5
+ 5f2:	fd cf       	rjmp	.-6      	; 0x5ee <_Z9UsartSendi+0x24>
+ 5f4:	2d e2       	ldi	r18, 0x2D	; 45
+ 5f6:	20 93 c6 00 	sts	0x00C6, r18	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
+ 5fa:	8e 01       	movw	r16, r28
+ 5fc:	0f 5f       	subi	r16, 0xFF	; 255
+ 5fe:	1f 4f       	sbci	r17, 0xFF	; 255
+ 600:	f8 01       	movw	r30, r16
+ 602:	0f 2e       	mov	r0, r31
+ 604:	fa e0       	ldi	r31, 0x0A	; 10
+ 606:	ef 2e       	mov	r14, r31
+ 608:	f1 2c       	mov	r15, r1
+ 60a:	f0 2d       	mov	r31, r0
+ 60c:	9f 01       	movw	r18, r30
+ 60e:	b7 01       	movw	r22, r14
+ 610:	0e 94 62 03 	call	0x6c4	; 0x6c4 <__divmodhi4>
+ 614:	80 5d       	subi	r24, 0xD0	; 208
+ 616:	81 93       	st	Z+, r24
+ 618:	86 2f       	mov	r24, r22
+ 61a:	97 2f       	mov	r25, r23
+ 61c:	00 97       	sbiw	r24, 0x00	; 0
+ 61e:	b1 f7       	brne	.-20     	; 0x60c <_Z9UsartSendi+0x42>
+ 620:	ce 01       	movw	r24, r28
+ 622:	01 96       	adiw	r24, 0x01	; 1
+ 624:	28 17       	cp	r18, r24
+ 626:	39 07       	cpc	r19, r25
+ 628:	80 f0       	brcs	.+32     	; 0x64a <_Z9UsartSendi+0x80>
+ 62a:	af 01       	movw	r20, r30
+ 62c:	e0 ec       	ldi	r30, 0xC0	; 192
+ 62e:	f0 e0       	ldi	r31, 0x00	; 0
+ 630:	26 ec       	ldi	r18, 0xC6	; 198
+ 632:	30 e0       	ldi	r19, 0x00	; 0
+ 634:	80 81       	ld	r24, Z
+ 636:	85 ff       	sbrs	r24, 5
+ 638:	fd cf       	rjmp	.-6      	; 0x634 <_Z9UsartSendi+0x6a>
+ 63a:	da 01       	movw	r26, r20
+ 63c:	8e 91       	ld	r24, -X
+ 63e:	ad 01       	movw	r20, r26
+ 640:	d9 01       	movw	r26, r18
+ 642:	8c 93       	st	X, r24
+ 644:	40 17       	cp	r20, r16
+ 646:	51 07       	cpc	r21, r17
+ 648:	a9 f7       	brne	.-22     	; 0x634 <_Z9UsartSendi+0x6a>
+ 64a:	0f 90       	pop	r0
+ 64c:	0f 90       	pop	r0
+ 64e:	0f 90       	pop	r0
+ 650:	0f 90       	pop	r0
+ 652:	0f 90       	pop	r0
+ 654:	df 91       	pop	r29
+ 656:	cf 91       	pop	r28
+ 658:	1f 91       	pop	r17
+ 65a:	0f 91       	pop	r16
+ 65c:	ff 90       	pop	r15
+ 65e:	ef 90       	pop	r14
+ 660:	08 95       	ret
+
+00000662 <__vector_18>:
+ 662:	1f 92       	push	r1
+ 664:	0f 92       	push	r0
+ 666:	0f b6       	in	r0, 0x3f	; 63
+ 668:	0f 92       	push	r0
+ 66a:	11 24       	eor	r1, r1
+ 66c:	8f 93       	push	r24
+ 66e:	ef 93       	push	r30
+ 670:	ff 93       	push	r31
+ 672:	e0 91 55 01 	lds	r30, 0x0155	; 0x800155 <rxIdx>
+ 676:	81 e0       	ldi	r24, 0x01	; 1
+ 678:	8e 0f       	add	r24, r30
+ 67a:	80 93 55 01 	sts	0x0155, r24	; 0x800155 <rxIdx>
+ 67e:	f0 e0       	ldi	r31, 0x00	; 0
+ 680:	80 91 c6 00 	lds	r24, 0x00C6	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
+ 684:	ea 5a       	subi	r30, 0xAA	; 170
+ 686:	fe 4f       	sbci	r31, 0xFE	; 254
+ 688:	80 83       	st	Z, r24
+ 68a:	80 91 55 01 	lds	r24, 0x0155	; 0x800155 <rxIdx>
+ 68e:	8f 73       	andi	r24, 0x3F	; 63
+ 690:	80 93 55 01 	sts	0x0155, r24	; 0x800155 <rxIdx>
+ 694:	80 91 54 01 	lds	r24, 0x0154	; 0x800154 <rxLen>
+ 698:	86 fd       	sbrc	r24, 6
+ 69a:	05 c0       	rjmp	.+10     	; 0x6a6 <__vector_18+0x44>
+ 69c:	80 91 54 01 	lds	r24, 0x0154	; 0x800154 <rxLen>
+ 6a0:	8f 5f       	subi	r24, 0xFF	; 255
+ 6a2:	80 93 54 01 	sts	0x0154, r24	; 0x800154 <rxLen>
+ 6a6:	ff 91       	pop	r31
+ 6a8:	ef 91       	pop	r30
+ 6aa:	8f 91       	pop	r24
+ 6ac:	0f 90       	pop	r0
+ 6ae:	0f be       	out	0x3f, r0	; 63
+ 6b0:	0f 90       	pop	r0
+ 6b2:	1f 90       	pop	r1
+ 6b4:	18 95       	reti
+
+000006b6 <_Z12UsartNewLinev>:
+
+void UsartNewLine()
+{
+	UsartSend('\r');
+ 6b6:	8d e0       	ldi	r24, 0x0D	; 13
+ 6b8:	0e 94 c7 02 	call	0x58e	; 0x58e <_Z9UsartSendc>
+	UsartSend('\n');
+ 6bc:	8a e0       	ldi	r24, 0x0A	; 10
+ 6be:	0e 94 c7 02 	call	0x58e	; 0x58e <_Z9UsartSendc>
+ 6c2:	08 95       	ret
+
+000006c4 <__divmodhi4>:
+ 6c4:	97 fb       	bst	r25, 7
+ 6c6:	07 2e       	mov	r0, r23
+ 6c8:	16 f4       	brtc	.+4      	; 0x6ce <__divmodhi4+0xa>
+ 6ca:	00 94       	com	r0
+ 6cc:	07 d0       	rcall	.+14     	; 0x6dc <__divmodhi4_neg1>
+ 6ce:	77 fd       	sbrc	r23, 7
+ 6d0:	09 d0       	rcall	.+18     	; 0x6e4 <__divmodhi4_neg2>
+ 6d2:	0e 94 76 03 	call	0x6ec	; 0x6ec <__udivmodhi4>
+ 6d6:	07 fc       	sbrc	r0, 7
+ 6d8:	05 d0       	rcall	.+10     	; 0x6e4 <__divmodhi4_neg2>
+ 6da:	3e f4       	brtc	.+14     	; 0x6ea <__divmodhi4_exit>
+
+000006dc <__divmodhi4_neg1>:
+ 6dc:	90 95       	com	r25
+ 6de:	81 95       	neg	r24
+ 6e0:	9f 4f       	sbci	r25, 0xFF	; 255
+ 6e2:	08 95       	ret
+
+000006e4 <__divmodhi4_neg2>:
+ 6e4:	70 95       	com	r23
+ 6e6:	61 95       	neg	r22
+ 6e8:	7f 4f       	sbci	r23, 0xFF	; 255
+
+000006ea <__divmodhi4_exit>:
+ 6ea:	08 95       	ret
+
+000006ec <__udivmodhi4>:
+ 6ec:	aa 1b       	sub	r26, r26
+ 6ee:	bb 1b       	sub	r27, r27
+ 6f0:	51 e1       	ldi	r21, 0x11	; 17
+ 6f2:	07 c0       	rjmp	.+14     	; 0x702 <__udivmodhi4_ep>
+
+000006f4 <__udivmodhi4_loop>:
+ 6f4:	aa 1f       	adc	r26, r26
+ 6f6:	bb 1f       	adc	r27, r27
+ 6f8:	a6 17       	cp	r26, r22
+ 6fa:	b7 07       	cpc	r27, r23
+ 6fc:	10 f0       	brcs	.+4      	; 0x702 <__udivmodhi4_ep>
+ 6fe:	a6 1b       	sub	r26, r22
+ 700:	b7 0b       	sbc	r27, r23
+
+00000702 <__udivmodhi4_ep>:
+ 702:	88 1f       	adc	r24, r24
+ 704:	99 1f       	adc	r25, r25
+ 706:	5a 95       	dec	r21
+ 708:	a9 f7       	brne	.-22     	; 0x6f4 <__udivmodhi4_loop>
+ 70a:	80 95       	com	r24
+ 70c:	90 95       	com	r25
+ 70e:	bc 01       	movw	r22, r24
+ 710:	cd 01       	movw	r24, r26
+ 712:	08 95       	ret
+
+00000714 <__tablejump2__>:
+ 714:	ee 0f       	add	r30, r30
+ 716:	ff 1f       	adc	r31, r31
+ 718:	05 90       	lpm	r0, Z+
+ 71a:	f4 91       	lpm	r31, Z
+ 71c:	e0 2d       	mov	r30, r0
+ 71e:	09 94       	ijmp
+
+00000720 <_exit>:
+ 720:	f8 94       	cli
+
+00000722 <__stop_program>:
+ 722:	ff cf       	rjmp	.-2      	; 0x722 <__stop_program>

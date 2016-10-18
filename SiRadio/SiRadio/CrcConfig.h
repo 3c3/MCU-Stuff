@@ -1,0 +1,22 @@
+﻿/*
+ * CrcConfig.h
+ *
+ * Created: 8.10.2016 г. 9:34:44
+ *  Author: Kosyo
+ */ 
+
+
+#ifndef CRCCONFIG_H_
+#define CRCCONFIG_H_
+
+#define NO_CRC 0 //No CRC.
+#define CRC_8 1 //ITU-T CRC8: X8+X2+X+1
+#define CRC_16_IEC16 2 //IEC-16: X16+X14+X12+X11+X9+X8+X7+X4+X+1
+#define CRC_16_BAICHEVA 3 //Baicheva-16: X16+X15+X12+X7+X6+X4+X3+1
+#define CRC_16_IBM  4 //CRC-16 (IBM): X16+X15+X2+1
+#define CRC_16_CCIT 5 // CCIT-16: X16+X12+X5+1
+#define CRC_32_KOOPMAN 6 // Koopman: X32+X30+X29+X28+X26+X20+X19+X17+X16+X15+X11+X10+X7+X6+X4+X2+X+1
+#define CRC_32_IEEE 7 // IEEE 802.3: X32+X26+X23+X22+X16+X12+X11+X10+X8+X7+X5+X4+X2+X+1
+#define CRC_32_CASTAGNOLI 8 // Castagnoli: X32+X28+X27+X26+X25+X23+X22+X20+X19+X18+X14+X13+X11+X10+X9+X8+X6+1
+
+#endif /* CRCCONFIG_H_ */
